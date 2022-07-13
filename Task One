@@ -1,0 +1,16 @@
+Determine 10 test cases:
+1. Test with complex business logic
+2. Test for SQL injection
+3. Test with different browsers
+4. Test with different environments
+5. Test for unique data(credit/debit card, login credentials, sensitive information, etc)
+6. Test with different sets of data
+7. Test with a large amount of data
+8. Test for dependency
+9. Test for CSS3 errors
+10. Test for HTML5 errors
+
+
+
+
+
