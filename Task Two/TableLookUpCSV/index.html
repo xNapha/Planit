@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Reading a CSV File</title>
+        
+       
+    </head>
+    <body>
+        <input type="file" id="file" accept=".csv">
+        <button id="upload">Upload</button>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+        <script>
+            let name = [];
+            let age = [];
+            let hairColour = [];
+            const upload = document.getElementById("upload").addEventListener("click", () =>{
+                Papa.parse(document.getElementById("file").files[0],
+                {
+                    download:true,
+                    header: true,
+                    skipEmptyLines: true,
+                    complete: function(results){
+                        for(i=0; i< results.data.length; i++){
+                            name.push(results.data[i].Name);
+                            age.push(results.data[i].Age);
+                            hairColour.push(results.data[i].HairColour)
+                        }
+                        const p = document.createElement("p");
+                        const br = document.createElement("br");
+                        const nameInFile = document.createTextNode("Names in the file: "+ name);
+                        const ageInFile = document.createTextNode("Names in the file: "+ age);
+                        const hairInFile = document.createTextNode("Names in the file: "+ hairColour);
+                        p.appendChild(nameInFile)
+                        document.body.appendChild(p)
+                        
+                    }
+                });
+            });
+        </script>
+
+        
+    </body>
+</html>
